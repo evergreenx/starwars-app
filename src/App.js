@@ -134,6 +134,7 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <div>
+        <h1 className="text-center">Star-Wars Planets</h1>
 
           <Route exact path="/" component={HomePage} />
 

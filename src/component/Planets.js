@@ -17,12 +17,9 @@ export default class Planet extends Component {
     axios
       .get(`https://swapi.dev/api/planets/${this.props.match.params.id}`)
       .then((res) => {
-        console.log(res);
-
         this.setState({
           content: res.data,
         });
-        console.log(res.data);
       })
       .finally(() => {
         this.setState({
@@ -52,7 +49,7 @@ export default class Planet extends Component {
                   <h4>Gravity : {this.state.content.gravity}</h4>
                   <h4>Terrain Type: {this.state.content.terrain}</h4>
                   <h4>
-                    Population:{" "}
+                    Population:
                     {this.state.content.population
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -70,9 +67,15 @@ export default class Planet extends Component {
         </div>
       </div>
     ) : (
-      <div>
-        {" "}
-        <h1 className="text-center py-5 mt-5">Loading</h1>
+      
+       
+        
+        <div className="text-center text-white mt-5 py-5">
+       
+       <div class="loading text-white">
+ <span class="loading-dots text-white">•</span>
+ <h3 class="loading-text text-white">Loading Planet</h3>
+</div>
       </div>
     );
   }
