@@ -42,7 +42,7 @@ export default class Home extends Component {
   
              
   
-              <p className="card-text">Climate :{planet.climate}</p>
+              <p className="card-text">Climate : {planet.climate}</p>
   
               <p className="card-text"> Population: {planet.population}</p>
             </div>
