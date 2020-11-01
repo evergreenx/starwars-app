@@ -13,11 +13,15 @@ export default class Home extends Component {
     currentPage: 0,
   };
 
+  // method to handle api call to fetch planet on load
+
   receivedPlanetData() {
     axios
       .get("https://swapi.dev/api/planets")
 
       .then((res) => {
+
+        //setting api response result
         const data = res.data.results;
         const slice = data.slice(
           this.state.offset,
@@ -36,8 +40,7 @@ export default class Home extends Component {
                     <p className="card-text">Climate : {planet.climate}</p>
 
                     <p className="card-text">
-                      {" "}
-                      Population:{" "}
+                      Population:
                       {planet.population
                         .toString()
                         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -66,9 +69,11 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
+    //called method inside lifecycle method
     this.receivedPlanetData();
   }
 
+  //method to handle pagination
   handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
@@ -106,12 +111,10 @@ export default class Home extends Component {
       </div>
     ) : (
       <div className="text-center text-white mt-5 py-5">
-       
         <div class="loading text-white">
-  <span class="loading-dots text-white">•</span>
-  <h3 class="loading-text text-white">Loading Planet</h3>
-</div>
-
+          <span class="loading-dots text-white">•</span>
+          <h3 class="loading-text text-white">Loading Planet</h3>
+        </div>
       </div>
     );
   }

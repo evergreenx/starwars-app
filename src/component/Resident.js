@@ -7,28 +7,25 @@ class Resident extends Component {
     resident: {},
   };
 
+  // lifecycle method
   componentDidMount() {
-    axios.get(this.state.link).then((res) => {
-      
-
-      this.setState({
-          resident:res.data
+    axios
+      .get(this.state.link)
+      .then((res) => {
+        this.setState({
+          resident: res.data,
+        });
       })
 
-     
-    }).catch(error => console.log("There was a problem!", error))
+      // catch error
+      .catch((error) => console.log("There was a problem!", error));
   }
   render() {
-    return <div>
-
-
-
-    <li>
-    {this.state.resident.name}
-    </li>
-
-
-    </div>;
+    return (
+      <div>
+        <li>{this.state.resident.name}</li>
+      </div>
+    );
   }
 }
 

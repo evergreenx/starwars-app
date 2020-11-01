@@ -13,7 +13,7 @@ export default class Planet extends Component {
     this.setState({
       planet: id,
     });
-
+    // fetch planet details from the Api
     axios
       .get(`https://swapi.dev/api/planets/${this.props.match.params.id}`)
       .then((res) => {
@@ -67,15 +67,12 @@ export default class Planet extends Component {
         </div>
       </div>
     ) : (
-      
-       
-        
-        <div className="text-center text-white mt-5 py-5">
-       
-       <div class="loading text-white">
- <span class="loading-dots text-white">•</span>
- <h3 class="loading-text text-white">Loading Planet</h3>
-</div>
+      //loader
+      <div className="text-center text-white mt-5 py-5">
+        <div class="loading text-white">
+          <span class="loading-dots text-white">•</span>
+          <h3 class="loading-text text-white">Loading Planet</h3>
+        </div>
       </div>
     );
   }
