@@ -8,6 +8,8 @@ export default class Home extends Component {
     planetsDetails: [],
     isLoading: false,
   };
+  
+ 
 
   componentDidMount() {
     axios
@@ -24,6 +26,8 @@ export default class Home extends Component {
         });
       });
   }
+
+  
 
   render() {
     const { planetsDetails } = this.state;
@@ -70,6 +74,8 @@ export default class Home extends Component {
         <div className="row">
         
           {planetslist}
+
+    
       </div>
       </div>
     );
