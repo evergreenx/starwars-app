@@ -53,7 +53,7 @@ export default class Planet extends Component {
 
                   <h4>Terrain: {this.state.content.terrain}</h4>
 
-                  <h4>Population: {this.state.content.population}</h4>
+                  <h4>Population: {this.state.content.population.toLocaleString()}</h4>
 
                   <h4>Residents :{this.state.content.residents}</h4>
                 </div>

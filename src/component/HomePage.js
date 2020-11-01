@@ -44,7 +44,7 @@ export default class Home extends Component {
   
               <p className="card-text">Climate : {planet.climate}</p>
   
-              <p className="card-text"> Population: {planet.population}</p>
+              <p className="card-text"> Population: {planet.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
             </div>
           </div>
           </div>
