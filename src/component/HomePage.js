@@ -16,8 +16,8 @@ export default class Home extends Component {
         this.setState({
           planetsDetails: res.data.results,
         });
-        console.log(res.data.results);
-      })
+        console.log(res.data);
+      }).catch(error => console.log("There was a problem!", error))
       .finally(() => {
         this.setState({
           isLoading: true,

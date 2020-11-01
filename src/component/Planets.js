@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Resident from "./Resident";
 
 export default class Planet extends Component {
   state = {
@@ -38,7 +39,7 @@ export default class Planet extends Component {
             Back
           </a>
 
-          <div className="row">
+          <div className="row mx-auto">
             <div className="col-lg-10">
               <div className="card">
                 <div className="card-body">
@@ -47,15 +48,21 @@ export default class Planet extends Component {
                     Rotation Period: {this.state.content.rotation_period}
                   </h4>
                   <h4>Diameter : {this.state.content.diameter}</h4>
-
                   <h4>Climate : {this.state.content.climate}</h4>
                   <h4>Gravity : {this.state.content.gravity}</h4>
+                  <h4>Terrain Type: {this.state.content.terrain}</h4>
+                  <h4>
+                    Population:{" "}
+                    {this.state.content.population
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </h4>
+                  <h4>Famous Residents :</h4>
 
-                  <h4>Terrain: {this.state.content.terrain}</h4>
-
-                  <h4>Population: {this.state.content.population}</h4>
-
-                  <h4>Residents :{this.state.content.residents}</h4>
+                  {this.state.content.residents != null &&
+                    this.state.content.residents.map((el, i) => (
+                      <Resident link={el} key={i} />
+                    ))}
                 </div>
               </div>
             </div>
